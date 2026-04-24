@@ -1,0 +1,5 @@
+# Project-specific ignores requested for GitHub publishing
+README.md
+.vscode/
+GUIDE_LOGIQUE_AR.md
+GUIDE_TRANSPORTEURS.md
