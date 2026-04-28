@@ -1,6 +1,6 @@
 # Module Lead — Moteur Principal du Simulateur
 
-**Auteur :** Zack (Lead Developer)
+**Auteur :** Zakaria 
 **Rôle dans le projet :** Conception et implémentation du moteur central d'attribution des transporteurs, point d'entrée de l'application, et intégration finale.
 
 ---
