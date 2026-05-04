@@ -238,6 +238,4 @@ class MaClasse                        // PascalCase pour les classes
 // Jamais de code métier dans un .h   → uniquement dans le .cpp correspondant
 ```
 
----
 
-*Module maintenu par Zack — toute question sur le moteur ou le workflow Git peut lui être adressée directement.*
