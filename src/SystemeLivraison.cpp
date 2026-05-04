@@ -1,6 +1,5 @@
 // =============================================================================
-// SystemeLivraison.cpp  —  branche Zack (standalone)
-// Standard : C++17
+// SystemeLivraison.cpp
 // =============================================================================
 
 #include "../include/SystemeLivraison.h"
@@ -24,7 +23,6 @@ SystemeLivraison::SystemeLivraison()
 SystemeLivraison::~SystemeLivraison()
 {
     // Libération de toute la flotte.
-    // Requiert que le destructeur de Transporteur soit virtuel (cf. Transporteur.h).
     for (Transporteur *t : transporteurs_)
         delete t;
 
