@@ -1,12 +1,7 @@
 #pragma once
 
 // =============================================================================
-// Colis.h  —  STUB (branche Zack)
-// ----------------------------------------------------------------------------
-// Version autonome pour que la branche du Lead compile sans dépendre du
-// Membre 2. Contient uniquement les membres nécessaires au moteur
-// SystemeLivraison. À REMPLACER par la version complète du Membre 2 lors
-// du merge final dans dev.
+// Colis.h  
 // =============================================================================
 
 #include <string>
