@@ -1,8 +1,7 @@
 #pragma once
 
 // =============================================================================
-// SystemeLivraison.h  —  branche Zack (standalone)
-// Standard : C++17
+// SystemeLivraison.h
 // =============================================================================
 
 #include <vector>
@@ -23,7 +22,6 @@ public:
     SystemeLivraison &operator=(const SystemeLivraison &) = delete;
 
     // --- Flotte ---
-    /// Prend ownership du pointeur.
     /// @throws std::invalid_argument si nullptr.
     void ajouterTransporteur(Transporteur *transporteur);
 
@@ -31,8 +29,6 @@ public:
     void ajouterColis(const Colis &colis);
 
     // --- Moteur polymorphique ---
-    /// Retourne le moins cher (à vitesse égale : le plus rapide).
-    /// 100 % polymorphique — zéro test de type.
     /// @return nullptr si aucun transporteur ne peut livrer.
     Transporteur *assignerTransporteur(const Colis &colis) const;
 
