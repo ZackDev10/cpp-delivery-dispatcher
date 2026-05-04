@@ -1,16 +1,7 @@
 #pragma once
 
 // =============================================================================
-// Transporteur.h  —  STUB (branche Zack)
-// ----------------------------------------------------------------------------
-// Contient :
-//   1. L'interface abstraite Transporteur  (contrat définitif pour M3/M4)
-//   2. Deux implémentations factices (FakeRapide / FakePasCher) pour tester
-//      la boucle polymorphique de SystemeLivraison sans aucune dépendance
-//      sur les classes réelles de l'équipe.
-//
-// À REMPLACER lors du merge : supprimer les Fake* et inclure les vrais headers
-// (Velo.h, Drone.h, Camion.h, Avion.h).
+// Transporteur.h
 // =============================================================================
 
 #include "Colis.h"
@@ -18,8 +9,7 @@
 #include <iostream>
 
 // =============================================================================
-// Interface abstraite — NE PAS MODIFIER
-// Ce contrat est définitif ; les membres 3 & 4 doivent l'implémenter tel quel.
+// Interface abstraite
 // =============================================================================
 class Transporteur
 {
@@ -48,7 +38,6 @@ public:
 
 // =============================================================================
 // FakeRapide — transporteur fictif rapide mais cher
-// Utilisé UNIQUEMENT pour tester assignerTransporteur() dans main.cpp
 // =============================================================================
 class FakeRapide : public Transporteur
 {
@@ -67,7 +56,6 @@ public:
 
 // =============================================================================
 // FakePasCher — transporteur fictif lent mais économique
-// Utilisé UNIQUEMENT pour tester assignerTransporteur() dans main.cpp
 // =============================================================================
 class FakePasCher : public Transporteur
 {
@@ -86,7 +74,6 @@ public:
 
 // =============================================================================
 // FakeSamePrice — même coût que FakePasCher sur colis léger → teste le
-// départage par vitesse (getVitesse() > FakePasCher → doit gagner)
 // =============================================================================
 class FakeSamePrice : public Transporteur
 {
