@@ -235,14 +235,6 @@ int main()
     systeme.ajouterTransporteur(new FakePasCher());
     systeme.ajouterTransporteur(new FakeSamePrice());
 
-    /*
-    // BLOC REEL - decommenter quand les membres ont livre leurs classes
-    systeme.ajouterTransporteur(new Velo("Velo Express",   15.0));
-    systeme.ajouterTransporteur(new Drone("Drone Alpha",   80.0));
-    systeme.ajouterTransporteur(new Camion("Camion Nord",  90.0));
-    systeme.ajouterTransporteur(new Avion("Air Rapide",   900.0));
-    */
-
     int choix{};
     do
     {
