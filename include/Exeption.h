@@ -2,29 +2,26 @@
 #define EXCEPTIONS_H
 
 #include <exception>
-
 #include <string>
 
-
-class colisNOTFOUNDEXCEPTION : public std::exception { 
-    private :
-    std::string message ;
-    public :
-    colisNOTFOUNDEXCEPTION (int id){
-        message = "Erreue : le colis avec l'ID "+ std::to_string(id) + "est introuvable .";
-    };
+class ColisNotFoundException : public std::exception { 
+private:
+    std::string message;
+public:
+    explicit ColisNotFoundException(int id) {
+        
+        message = "Erreur : le colis avec l'ID " + std::to_string(id) + " est introuvable."; [cite: 23]
+    }
 
     const char* what() const noexcept override {
-        return message.c_str();
-    };
-    
-
-} ;
+        return message.c_str(); [cite: 24]
+    }
+};
 
 class InvalidStateTransitionException : public std::exception {
 public:
     const char* what() const noexcept override {
-        return "Erreur : Transition d'etat invalide pour ce colis !";
+        return "Erreur : Transition d'etat invalide pour ce colis !"; [cite: 25]
     }
 };
 

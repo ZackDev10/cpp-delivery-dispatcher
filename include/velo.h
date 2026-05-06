@@ -4,16 +4,13 @@
 #include "Transporteur.h" 
 #include "Colis.h"
 
-
-class Velo : public Transporteur {
+class Velo final : public Transporteur {
 public:
-    
-    Velo();
+    Velo(const std::string& nom); 
 
-    
-    bool canDeliver(const Colis& c) override;
-    float computeCost(const Colis& c) override;
-    float getDelay(const Colis& c) override;
+    bool canDeliver(const Colis& c) const override; [cite: 15]
+    float computeCost(const Colis& c) const override; [cite: 15]
+    float getDelay(const Colis& c) const override; [cite: 15]
 };
 
 #endif

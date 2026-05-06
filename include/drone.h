@@ -4,14 +4,13 @@
 #include "Transporteur.h"
 #include "Colis.h"
 
-class Drone : public Transporteur {
+class Drone final : public Transporteur {
 public:
-    Drone();
-    bool canDeliver(const Colis& c) override;
-    float computeCost(const Colis& c) override;
-    float getDelay(const Colis& c) override;
-    
-    virtual ~Drone() = default;
+    Drone(const std::string& nom);
+
+    bool canDeliver(const Colis& c) const override; [cite: 2]
+    float computeCost(const Colis& c) const override; [cite: 2]
+    float getDelay(const Colis& c) const override; [cite: 2]
 };
 
 #endif
