@@ -1,34 +1,44 @@
-Simulateur de Livraison OOP - Contribution (Hamza)
-Ce dépôt contient ma contribution au projet de simulateur de livraison. Je suis responsable du développement des transporteurs légers et de la gestion personnalisée des exceptions.
+# 🚚 ✈️ README — Module Transporteurs Légers (Drone & Velo)
 
-🛠 Corrections Techniques Appliquées
-Suite aux retours du Tech Lead, j'ai procédé à une refactorisation complète pour garantir la compilation et la robustesse du système:
+Ce document explique clairement la partie **Transporteurs Légers** du projet, dont je suis responsable (Hamza) :
 
+* **Ce que fait chaque classe**
+* **La logique métier et les formules utilisées**
+* **Les corrections architecturales pour la robustesse du système**
 
-Const Correctness (Crucial) : Ajout du qualificatif const aux méthodes canDeliver, computeCost et getDelay dans les fichiers .h et .cpp. Cela assure la correspondance exacte avec l'interface parente Transporteur et résout les erreurs de compilation.
+---
 
+### 1) Contexte de la partie
+Dans cette simulation, je gère les options de livraison pour les colis légers et urbains. Ma mission était de garantir que les classes `Velo` et `Drone` s'intègrent parfaitement dans le dispatcher via l'interface `Transporteur`.
 
-Constructeurs Dynamiques : Modification des constructeurs de Velo et Drone pour accepter un paramètre nom. Cela permet d'instancier plusieurs véhicules avec des noms uniques depuis le main.cpp au lieu d'avoir des noms figés.
+---
 
-Standardisation des Exceptions :
+### 2) Architecture Technique & Corrections (Crucial)
 
-Renommage de la classe en ColisNotFoundException pour respecter la convention PascalCase.
+Pour éviter les erreurs de compilation, j'ai implémenté les standards C++17 suivants :
 
-Correction des fautes d'orthographe dans les messages d'erreur (ex: "Erreur" au lieu de "Erreue").
+* **Const Correctness** : Ajout du qualificatif `const` aux méthodes `canDeliver`, `computeCost` et `getDelay` pour correspondre au contrat de l'interface parente.
+* **Constructeurs Dynamiques** : Les noms ne sont plus "en dur". Chaque transporteur reçoit son nom via son constructeur : `Velo(const std::string& nom)`.
+* **Gestion des Exceptions** : Refactorisation de la classe `ColisNotFoundException` (PascalCase) et correction des messages d'erreur.
 
-🚚 Logique Métier (Implémentée)
-J'ai maintenu l'intégralité des formules mathématiques et des contraintes demandées dans le Cahier des Charges (CDC):
+---
 
-1. Velo :
+### 3) Logique Métier par Classe
 
-Capacité max : 5.0 kg.
+#### **Velo** (Transport Urbain)
+* **Capacité** : Poids ≤ 5.0 kg et Distance ≤ 30.0 km.
+* **Acceptation** : Uniquement les colis de type `STANDARD`.
+* **Coût** : `(coutParKm * distance) + (poids * 0.1)`.
+* **Délai** : `(distance / vitesse) + 5 minutes`.
 
-Distance max : 30.0 km.
+#### **Drone** (Livraison Rapide)
+* **Capacité** : Poids ≤ 3.0 kg et Distance ≤ 50.0 km.
+* **Acceptation** : Colis `STANDARD` et `FRAGILE`.
+* **Logique Fragile** : Majoration du coût de **10%** et du délai de **20%**.
 
-Acceptation : Uniquement les colis de type STANDARD.
+---
 
-2. Drone :
-
-Vitesse : 80.0 km/h.
-
-Gestion FRAGILE : Majoration de 10% sur le coût et 20% sur le délai de livraison.
+### 4) Organisation des Fichiers
+* `include/Velo.h`, `include/Drone.h` : Signatures des classes.
+* `src/Velo.cpp`, `src/Drone.cpp` : Implémentation de la logique.
+* `include/Exceptions.h` : Gestion des erreurs.
