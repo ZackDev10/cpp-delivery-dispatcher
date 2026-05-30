@@ -33,7 +33,7 @@
 
 # Build directories (CMake standard)
 build/
-build-*/
+build-qt/
 bin/
 obj/
 
@@ -47,9 +47,10 @@ Thumbs.db
 .idea/
 CMakeLists.txt.user
 
-# Runtime/output artifacts
+# Runtime/data artifacts
 rapport_final.txt
 data/colis.json
-*.ilk
-*.pdb
-*.log
+
+# Local executables
+simulateur.exe
+simulateur_ui.exe
