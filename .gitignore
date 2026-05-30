@@ -1,0 +1,55 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories (CMake standard)
+build/
+build-*/
+bin/
+obj/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files 
+.vscode/
+.vs/
+.idea/
+CMakeLists.txt.user
+
+# Runtime/output artifacts
+rapport_final.txt
+data/colis.json
+*.ilk
+*.pdb
+*.log
