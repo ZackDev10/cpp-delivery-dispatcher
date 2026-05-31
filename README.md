@@ -1,232 +1,232 @@
-# 📦 Simulateur de Système de Livraison (C++)
+<div align="center">
 
-![C++17](https://img.shields.io/badge/C++-17-blue.svg)
-![Architecture](https://img.shields.io/badge/Architecture-POO%20%7C%20SOLID-success.svg)
+<img src="https://img.shields.io/badge/C%2B%2B-17-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++17"/>
+<img src="https://img.shields.io/badge/Qt-Framework-41CD52?style=for-the-badge&logo=qt&logoColor=white" alt="Qt"/>
+<img src="https://img.shields.io/badge/CMake-3.16%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white" alt="CMake"/>
+<img src="https://img.shields.io/badge/JSON-Persistance-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON"/>
+<img src="https://img.shields.io/badge/Interface-Dark%20Mode-1a1a2e?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="Dark Mode"/>
 
-Une application console robuste orientée objet simulant la gestion complète d'une plateforme logistique (gestion des colis, attribution des transporteurs, calcul des coûts et suivis).
+<br/><br/>
 
-Ce projet met en œuvre un moteur de routage purement **polymorphique**, garantissant l'attribution automatique du meilleur transporteur sans utiliser de logique conditionnelle explicite sur les types, respectant ainsi strictement le principe d'Ouverture/Fermeture (Open/Closed Principle de SOLID).
+# 🚚 Simulateur de Livraison Logistique
 
-## 🚀 Fonctionnalités Clés
+### *Qt GUI Edition*
 
-* **Attribution Polymorphique :** Sélection automatique du transporteur (Vélo, Drone, Camion, Avion) le plus rentable et apte, sans `if` ou `switch` sur le type.
-* **Gestion du Cycle de Vie :** Suivi strict des états des colis (`EN_ATTENTE` ➔ `EN_TRANSIT` ➔ `LIVRÉ`).
-* **Calcul Dynamique :** Formules de calcul des coûts et délais intégrées dynamiquement selon les contraintes de chaque véhicule.
-* **Génération de Rapports :** Exportation automatisée des historiques et statistiques financières via flux de fichiers (`std::fstream`).
-* **Robustesse :** Gestion complète des erreurs avec des exceptions C++ personnalisées.
+<p align="center">
+  <em>Une application desktop de simulation logistique avancée, construite sur des fondations d'architecture orientée objet rigoureuse.<br/>
+  Assignation intelligente de colis à une flotte de véhicules polymorphiques, pilotée par contraintes de poids, distance, coût et vitesse.</em>
+</p>
 
-## 📂 Structure du Projet
+<br/>
 
-```text
-livraison-simulateur/
-│
-├── include/          # Déclarations des classes et contrats (.h)
-├── src/              # Implémentations de la logique métier (.cpp)
-├── tests/            # Tests unitaires et de robustesse
-├── rapports/         # Dossier de sortie pour les historiques générés
-├── data/             # Fichiers de persistance (si implémenté)
-├── CMakeLists.txt    # Configuration de build
-└── README.md         # Documentation du projet
----
+> **Projet universitaire — Programmation Orientée Objet Avancée**
+> Évolution d'un outil CLI vers une application Desktop complète avec interface graphique en mode sombre.
 
-## Table des matières
-
-1. [Présentation](#présentation)
-2. [Architecture du projet](#architecture-du-projet)
-3. [Répartition de l'équipe](#répartition-de-léquipe)
-4. [Prérequis](#prérequis)
-5. [Compilation & Exécution](#compilation--exécution)
-6. [Fonctionnalités](#fonctionnalités)
-7. [Principe clé : Attribution polymorphique](#principe-clé--attribution-polymorphique)
-8. [Conventions de code](#conventions-de-code)
-9. [Workflow Git](#workflow-git)
-10. [Statut d'avancement](#statut-davancement)
+</div>
 
 ---
 
-## Présentation
+## Table des Matières
 
-Ce projet modélise une entreprise de livraison gérant différents types de colis et de transporteurs. Il implémente :
-
-- La **création et le suivi de colis** (poids, dimensions, type fragile/standard)
-- La **gestion d'une flotte** de transporteurs (Vélo, Drone, Camion, Avion)
-- Le **calcul automatique** du coût et du délai de livraison
-- Le **suivi des statuts** (EN_ATTENTE → EN_TRANSIT → LIVRE)
-- La **génération de rapports** exportés en `.txt`
-
-### Challenge avancé implémenté
-
-L'attribution du transporteur optimal repose **exclusivement sur le polymorphisme** via les méthodes virtuelles pures `canDeliver()`, `computeCost()` et `getVitesse()`. Aucun `if (type == "...")`, `switch` ou `dynamic_cast` n'est présent dans le moteur d'attribution.
+- [✨ Fonctionnalités Principales](#-fonctionnalités-principales)
+- [🏗️ Architecture & Principes Développés](#️-architecture--principes-développés)
+- [📁 Structure du Projet](#-structure-du-projet)
+- [⚙️ Prérequis & Installation](#️-prérequis--installation)
+- [👥 Équipe de Développement](#-équipe-de-développement)
 
 ---
 
-## Architecture du projet
+## ✨ Fonctionnalités Principales
+
+L'application expose **quatre vues principales** accessibles depuis une navigation latérale unifiée :
+
+### 📊 Dashboard — Tableau de Bord en Temps Réel
+
+- 📈 Visualisation instantanée des **statistiques globales** du système (nombre de colis, taux de livraison, flotte active)
+- 🔄 Mise à jour dynamique de l'état de la simulation sans rechargement
+- 🎯 Indicateurs clés de performance (KPIs) présentés sous forme de cartes métriques
+
+### 📦 Opérations — Cœur du Moteur Logistique
+
+- ➕ **Création de colis** avec saisie des paramètres métier (poids, destination, priorité)
+- 🔁 **Mise à jour d'état via machine à états finis** : transitions contrôlées de `EN_ATTENTE` → `EN_COURS` → `LIVRÉ` / `ÉCHOUÉ`
+- 🤖 **Assignation polymorphique automatique** : le moteur sélectionne le transporteur optimal (Vélo, Drone, Camion, Avion) selon les contraintes du colis
+
+### 🗃️ Stock — Inventaire Complet
+
+- 📋 Liste exhaustive de **tous les colis enregistrés** dans le système
+- 🔍 Consultation de l'état courant et de l'historique de chaque colis
+- 🚛 Vue de la **flotte de véhicules** disponibles avec leur capacité résiduelle
+
+### 📑 Rapports & Persistance — Traçabilité & Sauvegarde
+
+- 💾 **Auto-sauvegarde JSON** : état complet du système persisté automatiquement à chaque opération
+- 📤 **Export des logs en `.txt`** : génération de rapports d'activité horodatés via `RapportManager`
+- ♻️ **Rechargement à froid** : restauration intégrale de la session depuis le fichier JSON au démarrage
+
+---
+
+## 🏗️ Architecture & Principes Développés
+
+Ce projet met en œuvre un ensemble de pratiques **C++ modernes et de patrons d'architecture avancés**, appliqués avec rigueur.
+
+### 🔷 Polymorphisme Pur — Sans `dynamic_cast`
+
+La hiérarchie de classes repose sur une interface abstraite `Transporteur`, déclinée en quatre implémentations concrètes. L'intégralité des décisions d'assignation s'effectue via **dispatch virtuel**, sans aucun recours à `dynamic_cast` ou `typeid` — garantissant une extensibilité totale et un couplage minimal.
 
 ```
+Transporteur (classe abstraite)
+├── Vélo        — courte distance, faible charge
+├── Drone       — livraison express, charge limitée
+├── Camion      — longue distance, haute capacité
+└── Avion       — transport intercontinental
+```
 
-SimulateurLivraison/
-├── include/                    # Headers (.h) — interfaces et déclarations
-│   ├── Transporteur.h          # Interface abstraite (Membre 3)
-│   ├── Colis.h                 # Entité colis (Membre 2)
-│   ├── SystemeLivraison.h      # Moteur principal (Zack)
-│   ├── Camion.h                # Transporteur lourd (Membre 3)
-│   ├── Avion.h                 # Transporteur lourd (Membre 3)
-│   ├── Velo.h                  # Transporteur léger (Membre 4)
-│   ├── Drone.h                 # Transporteur léger (Membre 4)
-│   ├── Exceptions.h            # Exceptions personnalisées (Membre 4)
-│   └── RapportManager.h        # Export .txt (Membre 2)
-│
-├── src/                        # Implémentations (.cpp)
-│   ├── SystemeLivraison.cpp    # Moteur + boucle polymorphique (Zack)
-│   ├── Colis.cpp               # Logique colis (Membre 2)
-│   ├── RapportManager.cpp      # fstream / export (Membre 2)
-│   ├── Camion.cpp              # (Membre 3)
-│   ├── Avion.cpp               # (Membre 3)
-│   ├── Velo.cpp                # (Membre 4)
-│   └── Drone.cpp               # (Membre 4)
-│
-├── main.cpp                    # Point d'entrée CLI (Zack)
-├── CMakeLists.txt              # Build system
-├── .gitignore                  # Exclusions C++ / IDE
-└── README.md                   # Ce fichier
+### 🔷 Sécurité Mémoire & RAII
 
+La gestion de la mémoire dynamique applique le principe **RAII** (*Resource Acquisition Is Initialization*) de manière systématique :
+
+- **Suppression explicite** des constructeurs de copie et opérateurs d'affectation sur toutes les classes à ressources (`= delete`)
+- Utilisation de **pointeurs à durée de vie clairement définie** au sein du `SystemeLivraison`
+- Aucune fuite mémoire : chaque ressource acquise est libérée dans le destructeur correspondant
+
+### 🔷 Machine à États Finis (FSM)
+
+Le cycle de vie d'un `Colis` est modélisé par un **automate à états finis formel** :
+
+```
+         ┌───────────────────────────────────┐
+         │                                   ▼
+[EN_ATTENTE] ──assign──► [EN_COURS] ──success──► [LIVRÉ]
+                                   └──failure──► [ÉCHOUÉ]
+```
+
+Les transitions invalides lèvent une exception dédiée, rendant tout état incohérent **impossible par construction**.
+
+### 🔷 Exceptions C++ Personnalisées
+
+Le projet définit une hiérarchie d'exceptions métier héritant de `std::exception` :
+
+| Exception | Déclencheur |
+|---|---|
+| `TransporteurIndisponibleException` | Aucun véhicule ne satisfait les contraintes du colis |
+| `TransitionEtatInvalideException` | Tentative de transition FSM illégale |
+| `ErreurPersistanceException` | Échec de lecture/écriture JSON |
+
+---
+
+## 📁 Structure du Projet
+
+```
+SimulateurLivraison-Qt/
+├── CMakeLists.txt
+├── README.md
+├── data/
+│   └── systeme_livraison.json      # Persistance automatique
+├── src/
+│   ├── core/
+│   │   ├── Transporteur.h          # Interface abstraite (pure virtual)
+│   │   ├── Velo.h / Velo.cpp
+│   │   ├── Drone.h / Drone.cpp
+│   │   ├── Camion.h / Camion.cpp
+│   │   ├── Avion.h / Avion.cpp
+│   │   ├── Colis.h / Colis.cpp     # FSM + couche données
+│   │   └── SystemeLivraison.h / SystemeLivraison.cpp
+│   ├── managers/
+│   │   └── RapportManager.h / RapportManager.cpp
+│   ├── exceptions/
+│   │   └── Exceptions.h
+│   └── gui/
+│       ├── MainWindow.h / MainWindow.cpp
+│       ├── DashboardView.h / .cpp
+│       ├── OperationsView.h / .cpp
+│       ├── StockView.h / .cpp
+│       └── RapportsView.h / .cpp
+└── build/                          # Généré par CMake (ignoré par git)
 ```
 
 ---
 
-## Répartition de l'équipe
+## ⚙️ Prérequis & Installation
 
-| Membre | Rôle | Fichiers |
-|--------|------|----------|
-| **Zack** (Lead) | Moteur principal, intégration, `main.cpp` | `SystemeLivraison.h/.cpp`, `main.cpp` |
-| **Membre 2** | Entité `Colis`, `RapportManager` | `Colis.h/.cpp`, `RapportManager.h/.cpp` |
-| **Membre 3** | Interface `Transporteur`, `Camion`, `Avion` | `Transporteur.h`, `Camion.h/.cpp`, `Avion.h/.cpp` |
-| **Membre 4** | `Velo`, `Drone`, exceptions | `Velo.h/.cpp`, `Drone.h/.cpp`, `Exceptions.h` |
-
----
-
-## Prérequis
+### Prérequis Système
 
 | Outil | Version minimale |
-|-------|-----------------|
+|---|---|
 | Compilateur C++ | GCC 9+ / Clang 10+ / MSVC 2019+ |
-| Standard | C++17 (`-std=c++17`) |
 | CMake | 3.16+ |
+| Qt | 6.x (ou Qt 5.15 LTS) |
+| Git | Toute version récente |
+
+> **Note :** Assurez-vous que `Qt` est installé et que la variable `CMAKE_PREFIX_PATH` pointe vers votre répertoire d'installation Qt si nécessaire.
 
 ---
 
-## Compilation & Exécution
-
-### Avec CMake (recommandé)
+### 🔧 Cloner le Dépôt
 
 ```bash
-# Cloner le dépôt
-git clone https://github.com/ZackDev10/cpp-delivery-dispatcher.git
-cd SimulateurLivraison
+git clone https://github.com/<votre-organisation>/simulateur-livraison-qt.git
+cd simulateur-livraison-qt
+```
 
-# Configurer et compiler
-cmake -B build -DCMAKE_BUILD_TYPE=Debug
-cmake --build build
+### 🏗️ Configurer le Projet avec CMake
 
-# Exécuter
+```bash
+# Générer les fichiers de build dans le répertoire 'build/'
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+```
+
+> Si Qt n'est pas détecté automatiquement, précisez le chemin :
+>
+> ```bash
+> cmake -B build -DCMAKE_PREFIX_PATH="/chemin/vers/Qt/6.x.x/gcc_64"
+> ```
+
+### 🔨 Compiler le Projet
+
+```bash
+cmake --build build --config Release
+```
+
+> Pour accélérer la compilation sur les machines multi-cœurs :
+>
+> ```bash
+> cmake --build build --config Release -- -j$(nproc)
+> ```
+
+### 🚀 Lancer l'Application
+
+```bash
+# Linux / macOS
 ./build/SimulateurLivraison
-```
 
-### Interface graphique (Qt Widgets)
-
-> Prérequis : Qt 6 (module Widgets) installé et visible par CMake.
-
-```bash
-# Configurer avec l'option GUI activée (par défaut)
-cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_QT_GUI=ON
-cmake --build build
-
-# Exécuter l'application graphique
-./build/simulateur_gui
-```
-
-### Compilation manuelle (g++)
-
-```bash
-g++ -std=c++17 -Wall -Wextra -Iinclude \
-    src/*.cpp main.cpp \
-    -o simulateur
-
-./simulateur
+# Windows
+.\build\Release\SimulateurLivraison.exe
 ```
 
 ---
 
-## Fonctionnalités
+## 👥 Équipe de Développement
 
-### Menu principal (CLI)
+Ce projet a été conçu et réalisé par une équipe de quatre développeurs dans le cadre d'un projet de **Programmation Orientée Objet Avancée**.
 
-```
-╔══════════════════════════════════════════╗
-║    SIMULATEUR DE SYSTÈME DE LIVRAISON    ║
-╠══════════════════════════════════════════╣
-║  1. Créer un colis                       ║
-║  2. Mettre à jour le statut d'un colis   ║
-║  3. Assigner un transporteur             ║
-║  4. Afficher tous les colis              ║
-║  5. Afficher la flotte                   ║
-║  0. Quitter                              ║
-╚══════════════════════════════════════════╝
-```
+<br/>
 
-### Statuts d'un colis
+| 👤 Membre | 🔧 Domaine de Responsabilité |
+|---|---|
+| **Zebbara Zakaria** | Moteur polymorphique (`SystemeLivraison`), architecture système globale, configuration CMake, gestion de la mémoire dynamique (RAII & suppression des copies) |
+| **Saloua Amehsis** | Couche données (`Colis`), implémentation de la machine à états finis, export des logs (`RapportManager`), persistance et chargement des données en JSON |
+| **Youssef Fahim** | Développement de l'Interface Graphique Qt (toutes les vues), conception de l'interface abstraite `Transporteur`, algorithmes des véhicules lourds (`Camion`, `Avion`) |
+| **Hamza Titiou** | Logique métier des véhicules légers (`Vélo`, `Drone`), validation des contraintes de livraison, conception et hiérarchie des exceptions C++ personnalisées |
 
-```
-EN_ATTENTE  ──►  EN_TRANSIT  ──►  LIVRE
-```
+<br/>
+
+> 🎓 **Encadrant :** Pr. **Youssef ES-SAADY**
 
 ---
 
-## Conventions de code
+<div align="center">
 
-* **Standard :** C++17 strict
-* **Nommage :** `camelCase` pour les méthodes, `PascalCase` pour les classes, `snake_case_` avec underscore final pour les membres privés
-* **Const-correctness :** tout getter doit être `const`, tout paramètre non modifié passé par `const&`
-* **Mémoire :** pas de `new` sans `delete` correspondant — le destructeur de `SystemeLivraison` libère toute la flotte
-* **Headers :** toujours utiliser `#pragma once`
-* **Séparation :** déclarations dans `.h`, implémentations dans `.cpp` — jamais de code métier dans un header
+*Réalisé avec rigueur dans le cadre d'un projet universitaire d'ingénierie logicielle.*
 
----
-
-## Workflow Git
-
-### Branches
-
-```
-main          ← production stable (merge après validation)
-dev           ← branche d'intégration commune
-feature/zack-moteur
-feature/m2-colis
-feature/m3-transporteurs
-feature/m4-vehicules-legers
-```
-
-### Règles
-
-1. **Ne jamais pusher directement sur `main`**
-2. Chaque membre travaille sur sa branche `feature/xxx`
-3. Pull Request → revue par Zack → merge dans `dev`
-4. Merge `dev` → `main` uniquement quand le build est propre
-
-### Commandes utiles
-
-```bash
-# Récupérer les dernières modifications de dev
-git checkout dev && git pull origin dev
-
-# Créer sa branche de feature
-git checkout -b feature/m2-colis
-
-# Après votre travail
-git add include/Colis.h src/Colis.cpp
-git commit -m "feat(Colis): ajout getters et setStatut()"
-git push origin feature/m2-colis
-# → ouvrir une Pull Request vers dev
-```
-
----
+</div>
